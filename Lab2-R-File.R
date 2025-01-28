@@ -20,13 +20,28 @@ for (direc in sub){
 }
 print(sub.direc)
 
-
-
-
 # Step 3:
-# for (direc in list.dirs("Music")){
-#   if (str_count("Music/bla/bla", "/") ==2{
-#     
-#   }
-# }
+files = c()
+
+for (sub in sub.direc){
+  file = list.files(sub)
+  if (sum(str_count(file, ".wav")) > 0){
+    files = append(files, file)
+  }
+
+}
+print(files)
+
+code.to.process = c()
+for (sub in sub.direc){
+  music = list.files(sub)
+  for (wav in music){
+    file = paste(sub, wav, sep = "/")
+    remove = str_sub(wav, 1, length(wav)-6)
+    name = str_split(remove, "-")
+    new.name = name[[1]][length(name[[1]])]
+    print(new.name)
+    # output = 
+  }
+}
   
