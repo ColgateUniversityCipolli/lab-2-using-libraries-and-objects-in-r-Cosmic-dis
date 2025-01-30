@@ -40,8 +40,12 @@ for (sub in sub.direc){
     remove = str_sub(wav, 1, length(wav)-6)
     name = str_split(remove, "-")
     new.name = name[[1]][length(name[[1]])]
-    print(new.name)
-    # output = 
+    artist = name[[1]][length(name[[1]])-1]
+    album = str_split(sub, "/")
+    print(album)
+    only.album = album[[1]][length(album[[1]])]
+    output = paste(artist, only.album, new.name,".json", sep = "-")
+    print(output)
   }
 }
   
