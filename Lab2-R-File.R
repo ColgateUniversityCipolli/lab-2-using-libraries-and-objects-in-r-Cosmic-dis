@@ -57,6 +57,7 @@ for (sub in sub.direc){
 
 writeLines(code.to.process, "batfile.txt")
 
+print("but")
 # Task 2
 
 # Step 1
