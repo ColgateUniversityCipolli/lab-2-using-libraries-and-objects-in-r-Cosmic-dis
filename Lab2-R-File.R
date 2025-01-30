@@ -56,12 +56,14 @@ for (sub in sub.direc){
 # Step 4
 
 writeLines(code.to.process, "batfile.txt")
-
-print("but")
 # Task 2
 
-# Step 1
+# Step 0
+# install.packages("jsonlite")
+# library(jsonlite)
 
+# Step 1
+list.dirs()
 
 
 # Task 
