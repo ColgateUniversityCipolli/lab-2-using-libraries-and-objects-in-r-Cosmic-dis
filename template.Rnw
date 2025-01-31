@@ -39,28 +39,23 @@
 
 \begin{multicols}{2}
 \begin{abstract}
-This document provides a basic template for the 2-page labs we will complete each week. Here, briefly summarize what you did and why it might be helpful. Provide all the top-line conclusions, but avoid providing \emph{all} the details. Results should be limited to ``we show X, Y, and Z."
+This lab was split into two parts, one part taught me how to retrieve and process data by building a Batch file and the other part was about processing \texttt{JSON} files and working with their data. 
 \end{abstract}
 
-\noindent \textbf{Keywords:} What topics does the lab cover concerning class? List 3-4 key terms here, separated by semicolons.
+\noindent \textbf{Keywords:} loops; conditionals; indexing, data
 
 \section{Introduction}
-Provide an overarching summary of what you're talking about. In this section, you introduce the idea to the reader, and your goal is to pull them in. What's the mystery you aim to solve?
 
-You want to provide enough background to understand the context of the work. Specifically, what is the question you are addressing? If it applies, describe what information currently exists about this problem, including citations, and explain how the question you're answering complements this work.
-
-Provide a roadmap of the structure of the paper. 
+The first question that I wanted to answer during this lab was: How can I simplify the act of processing data and evaluating that data to answer more important questions? The "more important" question in this lab was determining who, of the three bands, The Front Bottoms, Manchester Orchestra, and All Get Out, contributed the most to a famous song called "Allen Town" in which they all collaborated on. 
 
 \subsection{Intro Subsection}
 You might need/want to discuss the topics in subsections. Or, you may have multiple questions.
 
 
 \section{Methods}
-Describe the data you are working with, if applicable. Describe the specific process you will follow to answer the question at hand. This does not mean you should write something like this.
-\begin{quote}
-\textit{I did this and then I did that and then I did this other thing and then..., and then..., and then...}
-\end{quote}
-Instead, it should provide a clear and concise narrative that flows from the problem specification in the Introduction to how you will approach answering it. This is where I would expect to see some citations for \texttt{R} packages you will use to conduct the statistical analysis reported in the Results section.
+The process of answering this question began with learning how to properly process data by building a Batch file. I was given fake music data to work with, but I need functions that would allow me to manipulate the titles of the files and directories in a way that allowed me to better organize the data for evaluation later on. Specifically, I needed an R package that would allow me to manipulate strings (directory names, file names, etc.) easily. I used the \texttt{stringr} package to gain access to the functions \texttt{str\_sub()}, \texttt{str\_count()} and \texttt{str\_split()} which allowed me to work with the directory and file names to create the Batch file. \\
+
+\noindent Later on, I had to  work with a \texttt{JSON} file, which required me to download a package, \texttt{jsonlite}, that would allow me to read the data in the \texttt{JSON} file. This package gave me access to the \texttt{fromJSON()} function which I used to load the \texttt{JSON} file into my \texttt{R} script and then read the data within the file. 
 
 
 \subsection{Methods Subsection}
