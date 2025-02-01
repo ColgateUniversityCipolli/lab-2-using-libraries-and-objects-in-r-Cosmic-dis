@@ -97,23 +97,29 @@ This lab was split into two parts, one part taught me how to retrieve and proces
 
 \section{Introduction}
 
-The first question that I wanted to answer during this lab was: How can I simplify the act of processing data and evaluating that data to answer more important questions? The "more important" question in this lab was determining who, of the three bands, The Front Bottoms, Manchester Orchestra, and All Get Out, contributed the most to a famous song called "Allen Town" in which they all collaborated on. 
+This lab was the first of a series of labs that aim to answer an important question. This question is, who of the three bands, The Front Bottoms, Manchester Orchestra, and All Get Out, contributed the most to a famous song called "Allen Town" in which they all collaborated on. The focus of this lab was to get comfortable processing and evaluating data.
+
 
 \subsection{Intro Subsection}
 You might need/want to discuss the topics in subsections. Or, you may have multiple questions.
 
 
 \section{Methods}
-The process of answering this question began with learning how to properly process data by building a Batch file. I was given fake music data to work with, but I need functions that would allow me to manipulate the titles of the files and directories in a way that allowed me to better organize the data for evaluation later on. Specifically, I needed an R package that would allow me to manipulate strings (directory names, file names, etc.) easily. I used the \texttt{stringr} package to gain access to the functions \texttt{str\_sub()}, \texttt{str\_count()} and \texttt{str\_split()} which allowed me to work with the directory and file names to create the Batch file. \\
+The lab began by requiring us to build a Batch file for data processing. I was given fake music data to work with, but I needed functions that would allow me to manipulate the titles of the files and directories in a way that allowed me to better organize the data for evaluation later on. Specifically, I needed an R package that would allow me to manipulate strings (directory names, file names, etc.) easily. I used the \texttt{stringr} package to gain access to the functions \texttt{str\_sub()}, \texttt{str\_count()} and \texttt{str\_split()} which allowed me to work with the directory and file names to create the Batch file. \\
 
 \noindent Later on, I had to  work with a \texttt{JSON} file, which required me to download a package, \texttt{jsonlite}, that would allow me to read the data in the \texttt{JSON} file. This package gave me access to the \texttt{fromJSON()} function which I used to load the \texttt{JSON} file into my \texttt{R} script and then read the data within the file. 
 
 
 \subsection{Methods Subsection}
-Much like the Introduction, subsections can be helpful for the Methods section. For example, you might describe data collection and the statistical analyses of the collected data in different subsections. Or, you may have different questions that require distinct methods. 
+In collecting the data from the fake music file, I had to utilize for loops and conditional statements to specify what files I wanted to extract and what directories I wanted to look through. 
 
 \section{Results}
 Tie together the Introduction -- where you introduce the problem at hand -- and the methods --  what you propose to do to answer the question. Present your data, the results of your analyses, and how each reported aspect contributes to answering the question. This section should include table(s), statistic(s), and graphical displays. Make sure to put the results in a sensible order and that each result contributes a logical and developed solution. It should not just be a list. Avoid being repetitive. 
+
+
+For the first part of the lab, I utilized the \texttt{stringr} functions to isolate the band name, album name, and track name from the files in the fake music folder. Each file in the fake music folder consisted of sub-folders named after fake artists, and the WAV files within these sub-folders were named using fake album and track names. I had to extract the individual names of the band, album, and track and paste them into a vector according to this template \texttt{streaming_extractor_music.exe "the track file" "the output filename with the combined artist, album, and track names}
+
+This helped immensely during the \texttt{JSON} section of the lab where it required me to loop through all the contents of my lab 2 folder and specify that I only wanted to work through the \texttt{JSON} file. 
 
 \subsection{Results Subsection}
 Subsections can be helpful for the Results section, too. This can be particularly helpful if you have different questions to answer. 
