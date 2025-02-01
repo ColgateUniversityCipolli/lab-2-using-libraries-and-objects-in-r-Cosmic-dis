@@ -93,8 +93,14 @@ cat("Average_Loudness: ", average_loudness)
 spectral_energy_mean = file.data$"lowlevel"$"spectral_energy"$"mean"
 cat("Mean: ", spectral_energy_mean)
 
-bpm = file.data$"rythm"$"bpm"
-cat("BPM: ")
+bpm = file.data$"rhythm"$"bpm"
+cat("BPM: ", bpm)
+
+key_key = file.data$"tonal"$"key_key"
+cat("Key_key: ", key_key)
+
+length = file.data$"metadata"$"audio_properties"$"length"
+cat("Length: ", length)
 
 
 
