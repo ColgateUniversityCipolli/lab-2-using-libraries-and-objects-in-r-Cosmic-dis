@@ -47,45 +47,42 @@ for (sub in sub.direc){
   for (wav in music){ 
     file = paste('"', sub, wav, '"', sep = "/") # pastes the current album subdirectory and the current track title together
     # print(file)
-    remove = str_sub(wav, 1, length(wav)-6) # removes the ".wav" portion of the current file (wav)
-    # print(remove) 
-    track = str_split(remove, "-") # removes the dashes to isolate the artist, album, and track names
-    # print(track)
-    new.track = track[[1]][length(track[[1]])] # extracts the track name
-    # print(new.track)
+    remove = str_sub(wav, 1, length(wav)-6)
+    print(remove)# removes the ".wav" portion of the current file (wav)
+    track = str_split(remove, "-")
+    print(track)# removes the dashes to isolate the artist, album, and track names
+    new.track = track[[1]][length(track[[1]])]
+    print(new.track)# extracts the track name
     artist = track[[1]][length(track[[1]])-1] # extracts the artist name
-    album = str_split(sub, "/") # extracts all the album information
-    # print(album)
-    only.album = album[[1]][length(album[[1]])] # removes just the album name from all the album information
-    output = paste(artist, "-", only.album, "-", new.track,".json", sep = "") # pastes the artist, album, and track in .json form
-    # print(output)
-    exe = paste("streaming_extractor_music.exe", ' "', new.track,".wav", '" ', '"', output, '"', sep = "") # creates a combined string of various parts of the files according to a given template
+    album = str_split(sub, "/") #
+    print(album)
+    only.album = album[[1]][length(album[[1]])]
+    output = paste(artist, "-", only.album, "-", new.track,".json", sep = "")
+    print(output)
+    exe = paste("streaming_extractor_music.exe", ' "', new.track, '" ', '"', output, '"', sep = "")
     code.to.process = append(code.to.process, exe)
     # print(code.to.process)
   }
 }
-# code.to.process contains all collections of strings containing the track.wav, the whole_album_info.json
 print(code.to.process)
 
 # Step 4
 
-# creates a text file with all the track and album infos
 writeLines(code.to.process, "batfile.txt")
-
+print(code.to.process)
 # Task 2
 
 # Step 0
-
 install.packages("jsonlite")
 library(jsonlite)
 
 # Step 1
-
+list.files()
 json.files = c()
-for (file in list.files()){ # loops through files within the json file
-  if (str_count(string = file, pattern = ".json") > 0){ # if it it a json file 
-    # next 5 lines extract the artist, album, and track names individually as we did before
-    split.json = str_split(file, "-") 
+for (file in list.files()){
+  if (str_count(string = file, pattern = ".json") > 0){
+    # json.files = append(json.files, file)
+    split.json = str_split(file, "-")
     track = split.json[[1]][length(split.json[[1]])]
     json.track = str_sub(track, start = 1, end = length(track)-7)
     json.album = split.json[[1]][length(split.json[[1]])-1]
@@ -100,14 +97,10 @@ for (file in list.files()){ # loops through files within the json file
 
 # Step 2
 
-# 
 file.data = fromJSON("The Front Bottoms-Talon Of The Hawk-Au Revoir (Adios).json")
-
-# gives me the names of names of the 4 main categories within the json file
 names(file.data)
 # Step 3
 
-# next 5 lines extract requested data from the json file using the names of the categories
 average_loudness = file.data$"lowlevel"$"average_loudness"
 cat("Average_Loudness: ", average_loudness)
 
