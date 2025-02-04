@@ -49,10 +49,6 @@ This lab was split into two parts, one part taught me how to retrieve and proces
 This lab was the first of a series of labs that aim to answer an important question. This question is, who of the three bands, The Front Bottoms, Manchester Orchestra, and All Get Out, contributed the most to a famous song called "Allen Town" in which they all collaborated on. The focus of this lab was to get comfortable processing and evaluating data.
 
 
-\subsection{Intro Subsection}
-You might need/want to discuss the topics in subsections. Or, you may have multiple questions.
-
-
 \section{Methods}
 The lab began by requiring us to build a Batch file for data processing. I was given fake music data to work with, but I needed functions that would allow me to manipulate the titles of the files and directories in a way that allowed me to better organize the data for evaluation later on. Specifically, I needed an R package that would allow me to manipulate strings (directory names, file names, etc.) easily. I used the \texttt{stringr} package to gain access to the functions \texttt{str\_sub()}, \texttt{str\_count()} and \texttt{str\_split()} which allowed me to work with the directory and file names to create the Batch file. \\
 
@@ -69,13 +65,8 @@ For the first part of the lab, I utilized the \texttt{stringr} functions, for lo
 \noindent The second part of the lab was split into two tasks. First, I had to do what I had previously done and split the \texttt{JSON} file name into components consisting of the artist, album, and track names using a for loop and a conditional statement. Second, I needed to utilize \texttt{fromJSON} to read through the contents of the \texttt{JSON} file and pull out specific metrics. These metrics included the \texttt{avergae\_loundness}, \texttt{mean of spectral\_energy}, \texttt{danceability},\texttt{bpm}, \texttt{key\_key}, \texttt{key\_scale}, and \texttt{length}.
 
 
-\subsection{Results Subsection}
-
-
 \section{Discussion}
- You should objectively evaluate the evidence you found in the data. Do not embellish or wish-terpet (my made-up phase for making an interpretation you, or the researcher, wants to be true without the data \emph{actually} supporting it). Connect your findings to the existing information you provided in the Introduction.
 
-Finally, provide some concluding remarks that tie together the entire paper. Think of the last part of the results as abstract-like. Tell the reader what they just consumed -- what's the takeaway message?
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Bibliography
@@ -97,6 +88,5 @@ you cite them in your document, the bibliography section will automatically popu
 \onecolumn
 \section{Appendix}
 
-If you have anything extra, you can add it here in the appendix. This can include images or tables that don't work well in the two-page setup, code snippets you might want to share, etc.
 
 \end{document}
