@@ -1,20 +1,26 @@
 # Task 1: Build a Batch File for Data Processing 
 
 # Step 0:
-# install.packages("stringr")
+install.packages("stringr")
 library(stringr)
 
 # Step 1:
-list.dirs("Music")
+list.dirs("Music") # Lists sub-directories for fake MUSIC file
 
 # Step 2:
-str_count(string = "Music/PeopleStuff/bla", pattern = "/")
+str_count(string = "Music/PeopleStuff/bla", pattern = "/") 
+# str_count identifies how many backslashes until we arrive at the desired
+# location from which we extract the desired files
 
-sub = c(list.dirs("Music"))
+sub = c(list.dirs("Music")) # creates a vector of directories
+# print(sub)
 sub.direc = c()
 
-for (direc in sub){
-  if (str_count(direc, pattern = "/") == 2){
+
+for (direc in sub){ # loop through all directories
+  # if the the path of the directory includes 2 backslashes 
+  if (str_count(direc, pattern = "/") == 2){ 
+    # add this directory (direc) to the new vector of desired directories
     sub.direc = append(sub.direc, direc)
   }
 }
@@ -23,44 +29,52 @@ print(sub.direc)
 # Step 3:
 files = c()
 
-for (sub in sub.direc){
-  file = list.files(sub)
+# 1. and 2.
+for (sub in sub.direc){ # loop through each directory in sub.direc
+  file = list.files(sub) # list the files in the current directory
+  # if the files has the ending ".wav"
   if (sum(str_count(file, ".wav")) > 0){
+    # add the ".wav" file to the new vector of files
     files = append(files, file)
   }
 
 }
-print(files)
+# print(files)
+# 3.
 code.to.process = c()
-for (sub in sub.direc){
-  music = list.files(sub)
-  for (wav in music){
-    file = paste(sub, wav, sep = "/")
+for (sub in sub.direc){ 
+  music = list.files(sub) # variable containing the folders and the files in those folders 
+  for (wav in music){ 
+    file = paste('"', sub, wav, '"', sep = "/") # pastes the current album subdirectory and the current track title together
     # print(file)
     remove = str_sub(wav, 1, length(wav)-6)
+    print(remove)# removes the ".wav" portion of the current file (wav)
     track = str_split(remove, "-")
-    new.track = name[[1]][length(name[[1]])]
-    artist = name[[1]][length(name[[1]])-1]
-    album = str_split(sub, "/")
-    #print(album)
+    print(track)# removes the dashes to isolate the artist, album, and track names
+    new.track = track[[1]][length(track[[1]])]
+    print(new.track)# extracts the track name
+    artist = track[[1]][length(track[[1]])-1] # extracts the artist name
+    album = str_split(sub, "/") #
+    print(album)
     only.album = album[[1]][length(album[[1]])]
-    output = paste(artist, "-", only.album, "-", new.name,".json", sep = "")
-    #print(output)
-    exe = paste("streaming_extractor_music.exe", ' "', new.name,".wav", '" ', '"', output, '"', sep = "")
+    output = paste(artist, "-", only.album, "-", new.track,".json", sep = "")
+    print(output)
+    exe = paste("streaming_extractor_music.exe", ' "', new.track, '" ', '"', output, '"', sep = "")
     code.to.process = append(code.to.process, exe)
     # print(code.to.process)
   }
 }
-# print(code.to.process)
+print(code.to.process)
 
 # Step 4
 
 writeLines(code.to.process, "batfile.txt")
+print(code.to.process)
 # Task 2
 
 # Step 0
-# install.packages("jsonlite")
-# library(jsonlite)
+install.packages("jsonlite")
+library(jsonlite)
 
 # Step 1
 list.files()
@@ -73,9 +87,9 @@ for (file in list.files()){
     json.track = str_sub(track, start = 1, end = length(track)-7)
     json.album = split.json[[1]][length(split.json[[1]])-1]
     json.artist = split.json[[1]][length(split.json[[1]])-2]
-    print(json.track)
-    print(json.album)
-    print(json.artist)
+    # print(json.track)
+    # print(json.album)
+    # print(json.artist)
     
   }
 }

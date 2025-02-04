@@ -70,7 +70,6 @@ For the first part of the lab, I utilized the \texttt{stringr} functions, for lo
 
 
 \subsection{Results Subsection}
-Subsections can be helpful for the Results section, too. This can be particularly helpful if you have different questions to answer. 
 
 
 \section{Discussion}
